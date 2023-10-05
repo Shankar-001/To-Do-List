@@ -11,13 +11,13 @@ function Home() {
   }, []);
 
   const GetTodos = () => {
-    axios.get('https://mern-to-do-ly8z.onrender.com/api/todo/')
+    axios.get('https://to-do-list-kxjw.onrender.com/api/todo/')
       .then((res) => setTodos(res.data))
       .catch((err) => console.error('Error: ', err));
   };
 
   const completeTodo = async (id) => {
-    const response = await axios.get(`https://mern-to-do-ly8z.onrender.com/api/todo/complete/${id}`);
+    const response = await axios.get(`https://to-do-list-kxjw.onrender.com/api/todo/complete/${id}`);
     const updatedTodo = response.data;
 
     setTodos((todos) =>
@@ -38,7 +38,7 @@ function Home() {
   };
 
   const addTodo = async () => {
-    const response = await axios.post('https://mern-to-do-ly8z.onrender.com/api/todo/new', {
+    const response = await axios.post('https://to-do-list-kxjw.onrender.com/api/todo/new', {
       text: newTodo,
     });
     const newTodoData = response.data;
@@ -49,7 +49,7 @@ function Home() {
   };
 
   const deleteTodo = async (id) => {
-    await axios.delete(`https://mern-to-do-ly8z.onrender.com/api/todo/delete/${id}`);
+    await axios.delete(`https://to-do-list-kxjw.onrender.com/api/todo/delete/${id}`);
     setTodos((todos) => todos.filter((todo) => todo._id !== id));
   };
 
